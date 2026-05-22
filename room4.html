@@ -158,25 +158,35 @@
     const ctx = canvas.getContext('2d');
     const PIXEL_SCALE = 0.15;
 
+    function startDrawing() {
+      function drawFrame() {
+        if (!video.paused && !video.ended) {
+          ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        }
+        requestAnimationFrame(drawFrame);
+      }
+      drawFrame();
+    }
+
     video.addEventListener('loadedmetadata', function() {
       video.volume = 0.65;
       canvas.width = Math.floor(video.videoWidth * PIXEL_SCALE);
       canvas.height = Math.floor(video.videoHeight * PIXEL_SCALE);
-      video.currentTime = Math.random() * video.duration;
+
+      const randomTime = Math.random() * video.duration;
+      const seekTimeout = setTimeout(function() {
+        video.play().catch(function(){});
+        startDrawing();
+      }, 2000);
+
+      video.addEventListener('seeked', function() {
+        clearTimeout(seekTimeout);
+        video.play().catch(function(){});
+        startDrawing();
+      }, { once: true });
+
+      video.currentTime = randomTime;
     });
-
-    video.addEventListener('seeked', function() {
-      video.play().catch(function(){});
-    });
-
-    function drawFrame() {
-      if (!video.paused && !video.ended) {
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-      }
-      requestAnimationFrame(drawFrame);
-    }
-
-    video.addEventListener('play', drawFrame);
 
     window.toggleTV = function() {
       video.muted = !video.muted;
