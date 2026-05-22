@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="room.css">
+  <link rel="stylesheet" href="general.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="context-menu.css">
+  <link rel="stylesheet" href="https://use.typekit.net/bao6qio.css">
+  <title>VaultVetica</title>
+</head>
+
+<body>
+  <div id="page-fade" class="is-active"></div>
+
+  <aside id="context-menu" class="context-menu">
+    <div class="context-menu-header">
+      <div class="context-menu-title" id="ctx-title"></div>
+      <button class="context-menu-close" id="ctx-close">X</button>
+    </div>
+    <div class="context-menu-link">Links to: <span id="ctx-link-label"></span></div>
+    <div class="context-menu-desc" id="ctx-desc"></div>
+  </aside>
+
+  <header class="header">
+    <div class="left-section">
+      <button onclick="back()" class="back">&larr; Back</button>
+    </div>
+    <div class="right-section">
+      <button class="btn map-button" type="button" aria-label="Open map">
+        Map <img class="map-button-icon" src="images/compass-icon.svg" alt="">
+      </button>
+    </div>
+  </header>
+
+  <div class="background-container">
+
+    <img class="bunker-background" src="images/room_shell_tnl_left@2x.png">
+
+    <!-- Clock (clickable) -->
+    <div class="asset-container ctx-trigger"
+         style="left: 35.70%; top: 28.76%; width: 5.71%;"
+         onmouseenter="openContext({ name: 'CLOCK', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/r4_clock.png">
+      <div class="tool-tip">Clock</div>
+    </div>
+
+    <!-- Picture frame (clickable) -->
+    <div class="asset-container ctx-trigger"
+         style="left: 34.27%; top: 42.44%; width: 8.57%;"
+         onmouseenter="openContext({ name: 'PICTURE FRAME', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/r4_picture_frame.png">
+      <div class="tool-tip">Picture Frame</div>
+    </div>
+
+    <!-- Bottle shelf left (clickable) -->
+    <div class="asset-container ctx-trigger"
+         style="left: 32.13%; top: 56.13%; width: 10.71%;"
+         onmouseenter="openContext({ name: 'SHELF', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/r4_shelf_left.png">
+      <div class="tool-tip">Shelf</div>
+    </div>
+
+    <!-- TV unit (clickable) -->
+    <div class="asset-container ctx-trigger"
+         style="left: 46.42%; top: 27.37%; width: 25.00%;"
+         onmouseenter="openContext({ name: 'TV', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/r4_tv_unit.png">
+      <div class="tool-tip">TV</div>
+    </div>
+
+    <!-- Right shelf (decoration only) -->
+    <div class="asset-container no-click"
+         style="left: 73.57%; top: 21.90%; width: 10.00%;">
+      <img class="asset-img" src="images/r4_shelf_right.png">
+    </div>
+
+    <!-- Beer table (clickable) -->
+    <div class="asset-container ctx-trigger"
+         style="left: 71.43%; top: 67.07%; width: 10.00%;"
+         onmouseenter="openContext({ name: 'SIDE TABLE', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/r4_table.png">
+      <div class="tool-tip">Side Table</div>
+    </div>
+
+    <!-- Sofa + man (decoration only) -->
+    <div class="asset-container no-click"
+         style="left: 47.84%; top: 56.13%; width: 22.15%;">
+      <img class="asset-img" src="images/r4_sofa.png">
+    </div>
+
+  </div>
+  <img class="ground" src="images/ground rooms.png" alt="">
+
+<script>
+  window.CURRENT_ROOM = 4;
+
+  const fade = document.getElementById("page-fade");
+
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+      fade.style.transition = "none";
+      fade.classList.remove("is-active");
+      fade.offsetHeight;
+      fade.style.transition = "";
+      return;
+    }
+    setTimeout(() => { fade.classList.remove("is-active"); }, 100);
+  });
+
+  function fadeToPage(url) {
+    sessionStorage.setItem("fade-transition", "true");
+    fade.style.transition = "";
+    fade.classList.add("is-active");
+    setTimeout(() => { window.location.href = url; }, 500);
+  }
+
+  function back() { fadeToPage("index.html"); }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') fadeToPage('index.html');
+  });
+</script>
+  <script src="context-menu.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

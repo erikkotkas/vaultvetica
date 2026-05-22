@@ -1,0 +1,240 @@
+
+body{
+           margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.bunker-background {
+   height: auto;
+   width: 100%;
+   display: block;
+   margin: 0;
+   border: none;
+}
+.background-container {
+position:relative;
+display: block;
+line-height: 0;
+margin: 0;
+padding: 0;
+border: none;
+top: 0;
+width: 100vw;
+
+}
+.b1-container {
+
+
+   display: block;
+    background-color: none;
+    color: none;
+    border: none;
+    position: absolute;
+    top: 41%;
+    left: 38%;
+    height: 36% ;
+    width: 16%;
+    
+}
+
+.b1 {
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+}
+
+.b1:hover {
+
+    cursor: pointer;
+    
+}
+.sofa{
+
+    display: block;
+    position: absolute;
+    height: 100% ;
+    width: auto;
+    pointer-events: none;
+    
+}
+
+.shelf {
+    display: block;
+    position: absolute;
+    height: 15%;
+    width: auto;
+    top: 24%;
+    left: 21%;
+}
+
+.b1-container:hover {
+    height: 36.5% ;
+    width: 16.5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+.b2-container {
+
+
+   display: block;
+    background-color: none;
+    color: none;
+    border: none;
+    position: absolute;
+    top: 20%;
+    left: 60%;
+    height: 27% ;
+    width: 16%;
+    
+}
+
+.b2 {
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+}
+.b2:hover {
+
+    cursor: pointer;
+    
+}
+
+
+
+.table{
+
+    display: block;
+    position: absolute;
+    height: 100% ;
+    width: auto;
+    pointer-events: none;
+    
+}
+
+.b2-container:hover {
+    height: 27.5% ;
+    width: 16.5%;
+}
+
+
+.b1-container .tool-tip,
+.b2-container .tool-tip,
+.b3-container .tool-tip
+ {
+       position: absolute;
+background-color: rgb(37, 37, 37);
+color: white;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-left: 8px;
+padding-right: 8px;
+border-radius: 0;
+font-size: 14px;
+bottom: 105%;
+opacity: 0;
+transition: opacity 0.15s;
+pointer-events: none;
+white-space: nowrap;
+font-family: "lores-12", monospace;
+}
+
+.b1-container:hover .tool-tip,
+.b2-container:hover .tool-tip,
+.b3-container:hover .tool-tip {
+    opacity: 1;
+}
+
+
+
+    .b3-container {
+
+
+   display: block;
+    background-color: none;
+    color: none;
+    border: none;
+    position: absolute;
+    top: 67%;
+    left: 72%;
+    height: 22% ;
+    width: 16%;
+    
+}
+
+.b3 {
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+}
+.b3:hover {
+
+    cursor: pointer;
+    
+}
+.b3-container:hover {
+    height: 22.5% ;
+    width: 16.5%;
+}
+
+.shelf-button
+{display: block;
+    position: absolute;
+    height: 100% ;
+    width: auto;
+    pointer-events: none;}
+
+    #page-fade {
+  position: fixed;
+  inset: 0;
+  background: black;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999999;
+  transition: opacity 500ms ease;
+}
+
+#page-fade.is-active {
+  opacity: 1;
+}
+.ground{
+
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+
+}

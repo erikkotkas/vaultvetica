@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="general.css">
+<link rel="stylesheet" href="background.css">
+   <link rel="stylesheet" href="video.css">
+<link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="arrow.css">
+<link rel="stylesheet" href="https://use.typekit.net/bao6qio.css">
+  <title>VaultVetica</title>
+</head>
+
+<body>
+
+
+
+  <div class="video-container">
+
+    <video id="introVideo" id="introVideo"class="intro-video" autoplay muted  width:100vw; >
+  <source  class="video" none;
+ src="videos/Part_1.webm" type="video/webm">
+</video>
+<video id="loopGif" class="loop-gif" autoplay muted loop playsinline>
+  <source src="videos/Part_2.webm" type="video/webm">
+</video>
+<div class="arrow-wrapper" id="scrollArrow">
+  <div class="arrow-example -hidden">
+    <div class="dot -center"></div>
+    <div class="dot -center"></div>
+    <div class="dot -center"></div>
+    <div class="dot -center"></div>
+    <div class="dot -center"></div>
+    <div class="dot -center"></div>
+    <div class="dot -left-1"></div>
+    <div class="dot -left-2"></div>
+    <div class="dot -right-1"></div>
+    <div class="dot -right-2"></div>
+  </div>
+</div>
+</div>
+
+  <div id="page-fade"></div>
+
+  <header class="header">
+  <div class="left-section">
+  </div>
+  <div class="right-section">
+    <button class="btn map-button" type="button" aria-label="Open map">
+      Map <img class="map-button-icon" src="images/compass-icon.svg" alt="">
+    </button>
+  </div>
+
+</header>
+
+
+<div class="container">
+
+    <div class="background-container">
+<img class="bunker-background" src="images/underground_structure.png" >
+
+<div class="room1">
+  <button class="room1Button" onclick="changeRoom1()">01</button>
+</div>
+
+<div class="room3">
+  <button class="room3Button" onclick="changeRoom3()">03</button>
+</div>
+
+<div class="room4">
+  <button class="room4Button" onclick="changeRoom4()">LIVING ROOM</button>
+</div>
+
+<div class="room5">
+  <button class="room5Button" onclick="changeRoom5()">05</button>
+</div>
+
+<div class="room6">
+  <button class="room6Button" onclick="changeRoom6()">GYM</button>
+</div>
+
+<div class="room7">
+  <button class="room7Button" onclick="changeRoom7()">BEDROOM</button>
+</div>
+
+<div class="room8">
+  <button class="room8Button" onclick="changeRoom8()">08</button>
+</div>
+
+<div class="room9">
+  <button class="room9Button" onclick="changeRoom9()">PUB</button>
+</div>
+
+<div class="room10">
+  <button class="room10Button" onclick="changeRoom10()">HMP KERNING</button>
+</div>
+
+<div class="room2">
+  <button class="bunkerRoom" onclick="changeRoom2()">02</button>
+</div>
+
+</div>
+<img class="ground " src="images/ground 1.png" alt="">
+</div>
+
+  <script src="scroll-arrow.js"></script>
+  <script src="video.js"></script>
+  <script src="index.js"></script>
+  <script src="nav.js"></script>
+
+</body>
+
+
+</html>

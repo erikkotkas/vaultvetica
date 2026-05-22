@@ -1,0 +1,27 @@
+.context-menu {
+  position: fixed; bottom: 20px; left: 20px;
+  width: 300px; max-width: calc(100vw - 40px);
+  background: #ffffff; border: 2px solid #222;
+  padding: 14px; z-index: 90; display: none;
+  box-sizing: border-box; font-family: "lores-12", monospace; color: #222;
+}
+.context-menu.is-open { display: block; }
+.context-menu-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #bcbcbc;
+}
+.context-menu-title { font-family: "lores-15", monospace; font-size: 16px; font-weight: normal; }
+.context-menu-close {
+  font-family: "lores-12", monospace; background-color: #000; color: #fff;
+  border: 2px solid #777; padding: 4px 8px; font-size: 13px; cursor: pointer; transition: all 0.2s ease; line-height: 1;
+}
+.context-menu-close:hover { background-color: #333; border-color: #138A23; color: #138A23; }
+.context-menu-link { font-size: 13px; color: #888; margin-bottom: 8px; line-height: 1.4; }
+.context-menu-link span { color: #222; }
+.context-menu-desc { font-size: 13px; color: #555; line-height: 1.5; margin-bottom: 12px; }
+.context-menu-actions { border-top: 1px solid #bcbcbc; padding-top: 10px; display: flex; justify-content: flex-end; }
+.context-menu-actions .btn { border: 2px solid #777; padding: 7px 11px; }
+.context-menu-actions .btn:hover { background-color: #222; border-color: #222; color: #fff; transform: none; box-shadow: none; }
+@media (max-width: 700px) {
+  .context-menu { left: 0; right: 0; bottom: 0; width: 100%; max-width: none; border-left: 0; border-right: 0; }
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="room.css">
+  <link rel="stylesheet" href="general.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="context-menu.css">
+  <link rel="stylesheet" href="https://use.typekit.net/bao6qio.css">
+  <style>
+    .bars-overlay {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .bars-overlay.bars-visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="page-fade" class="is-active"></div>
+
+  <aside id="context-menu" class="context-menu">
+    <div class="context-menu-header">
+      <div class="context-menu-title" id="ctx-title"></div>
+      <button class="context-menu-close" id="ctx-close">X</button>
+    </div>
+    <div class="context-menu-link">Links to: <span id="ctx-link-label"></span></div>
+    <div class="context-menu-desc" id="ctx-desc"></div>
+  </aside>
+
+  <header class="header">
+    <div class="left-section">
+      <button onclick="back()" class="back">&larr; Back</button>
+    </div>
+    <div class="right-section">
+      <button class="btn map-button" type="button" aria-label="Open map">
+        Map <img class="map-button-icon" src="images/compass-icon.svg" alt="">
+      </button>
+    </div>
+  </header>
+
+  <div class="background-container">
+    <img class="bunker-background" src="images/room_shell_tnl_left@2x.png">
+
+    <!-- r10_wall_features.png (no-click) -->
+    <div class="asset-container no-click"
+         style="left:36.41%;top:21.92%;width:47.86%;">
+      <img class="asset-img" src="images/r10_wall_features.png" alt="Wall features">
+    </div>
+
+    <!-- r10_door.png -->
+    <div class="asset-container ctx-trigger"
+         style="left:19.27%;top:34.25%;width:5.00%;"
+         onmouseenter="openContext({ name: 'DOOR', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/r10_door.png" alt="Door">
+      <div class="tool-tip">DOOR</div>
+    </div>
+
+    <!-- r10_bog.png -->
+    <div class="asset-container ctx-trigger"
+         style="left:29.27%;top:65.08%;width:7.14%;"
+         onmouseenter="openContext({ name: 'BOG', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/r10_bog.png" alt="Bog">
+      <div class="tool-tip">BOG</div>
+    </div>
+
+    <!-- r10_bed.png -->
+    <div class="asset-container ctx-trigger"
+         style="left:50.00%;top:65.75%;width:13.57%;"
+         onmouseenter="openContext({ name: 'BED', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/r10_bed.png" alt="Bed">
+      <div class="tool-tip">BED</div>
+    </div>
+
+    <!-- r10_inmate.png -->
+    <div class="asset-container ctx-trigger"
+         style="left:65.70%;top:58.88%;width:10.71%;"
+         onmouseenter="openContext({ name: 'INMATE', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/r10_inmate.png" alt="Inmate">
+      <div class="tool-tip">INMATE</div>
+    </div>
+
+    <!-- r10_bars_toggleable.png (hidden by default, toggled via toggleBars()) -->
+    <div id="jail-bars" class="asset-container no-click bars-overlay"
+         style="left:21.42%;top:8.22%;width:70.00%;">
+      <img class="asset-img" src="images/r10_bars_toggleable.png" alt="Bars">
+    </div>
+
+  </div>
+  <img class="ground" src="images/ground rooms.png" alt="">
+
+  <script>
+    window.CURRENT_ROOM = 10;
+
+    window.BARS_VISIBLE = false;
+
+    function toggleBars() {
+      BARS_VISIBLE = !BARS_VISIBLE;
+      document.getElementById('jail-bars').classList.toggle('bars-visible', BARS_VISIBLE);
+    }
+
+    const fade = document.getElementById("page-fade");
+
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) {
+        fade.style.transition = "none";
+        fade.classList.remove("is-active");
+        fade.offsetHeight;
+        fade.style.transition = "";
+        return;
+      }
+      setTimeout(() => { fade.classList.remove("is-active"); }, 100);
+    });
+
+    function fadeToPage(url) {
+      sessionStorage.setItem("fade-transition", "true");
+      fade.style.transition = "";
+      fade.classList.add("is-active");
+      setTimeout(() => { window.location.href = url; }, 500);
+    }
+
+    function back() { fadeToPage("index.html"); }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') fadeToPage('index.html');
+    });
+  </script>
+  <script src="context-menu.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

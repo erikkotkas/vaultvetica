@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="room.css">
+  <link rel="stylesheet" href="general.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="context-menu.css">
+  <link rel="stylesheet" href="https://use.typekit.net/bao6qio.css">
+  <title>VaultVetica</title>
+</head>
+<body>
+  <div id="page-fade" class="is-active"></div>
+
+  <aside id="context-menu" class="context-menu">
+    <div class="context-menu-header">
+      <div class="context-menu-title" id="ctx-title"></div>
+      <button class="context-menu-close" id="ctx-close">X</button>
+    </div>
+    <div class="context-menu-link">Links to: <span id="ctx-link-label"></span></div>
+    <div class="context-menu-desc" id="ctx-desc"></div>
+  </aside>
+
+  <header class="header">
+    <div class="left-section">
+      <button onclick="back()" class="back">&larr; Back</button>
+    </div>
+    <div class="right-section">
+      <button class="btn map-button" type="button" aria-label="Open map">
+        Map <img class="map-button-icon" src="images/compass-icon.svg" alt="">
+      </button>
+    </div>
+  </header>
+
+  <div class="background-container">
+    <img class="bunker-background" src="images/room_shell_tnl_right@2x.png">
+
+    <!-- r9_bar.png -->
+    <div class="asset-container ctx-trigger"
+         style="left:9.29%;top:24.66%;width:25.71%;"
+         onmouseenter="openContext({ name: 'PUB', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/r9_bar.png" alt="Pub bar">
+      <div class="tool-tip">PUB</div>
+    </div>
+
+    <!-- r9_sign.png -->
+    <div class="asset-container ctx-trigger"
+         style="left:59.29%;top:17.12%;width:18.57%;"
+         onmouseenter="openContext({ name: 'SIGN', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/r9_sign.png" alt="Pub sign">
+      <div class="tool-tip">SIGN</div>
+    </div>
+
+    <!-- r9_jukebox.png -->
+    <div class="asset-container ctx-trigger"
+         style="left:37.86%;top:41.09%;width:17.14%;"
+         onmouseenter="openContext({ name: 'JUKEBOX', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/r9_jukebox.png" alt="Jukebox">
+      <div class="tool-tip">JUKEBOX</div>
+    </div>
+
+    <!-- r9_barrels.png -->
+    <div class="asset-container ctx-trigger"
+         style="left:58.57%;top:56.17%;width:13.57%;"
+         onmouseenter="openContext({ name: 'BARRELS', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/r9_barrels.png" alt="Barrels">
+      <div class="tool-tip">BARRELS</div>
+    </div>
+
+    <!-- r9_pukid.png (no-click) -->
+    <div class="asset-container no-click"
+         style="left:9.29%;top:73.97%;width:24.29%;">
+      <img class="asset-img" src="images/r9_pukid.png" alt="Pukid">
+    </div>
+
+    <!-- r9_stein.png -->
+    <div class="asset-container ctx-trigger"
+         style="left:73.57%;top:75.33%;width:5.00%;"
+         onmouseenter="openContext({ name: 'STEIN', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/r9_stein.png" alt="Beer stein">
+      <div class="tool-tip">STEIN</div>
+    </div>
+
+    <!-- r9_bloke@2x.png (no-click) -->
+    <div class="asset-container no-click"
+         style="left:78.57%;top:67.10%;width:9.29%;">
+      <img class="asset-img" src="images/r9_bloke@2x.png" alt="Bloke">
+    </div>
+  </div>
+  <img class="ground" src="images/ground rooms.png" alt="">
+
+  <script>
+    window.CURRENT_ROOM = 9;
+
+    const fade = document.getElementById("page-fade");
+
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) {
+        fade.style.transition = "none";
+        fade.classList.remove("is-active");
+        fade.offsetHeight;
+        fade.style.transition = "";
+        return;
+      }
+      setTimeout(() => { fade.classList.remove("is-active"); }, 100);
+    });
+
+    function fadeToPage(url) {
+      sessionStorage.setItem("fade-transition", "true");
+      fade.style.transition = "";
+      fade.classList.add("is-active");
+      setTimeout(() => { window.location.href = url; }, 500);
+    }
+
+    function back() { fadeToPage("index.html"); }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') fadeToPage('index.html');
+    });
+  </script>
+  <script src="context-menu.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

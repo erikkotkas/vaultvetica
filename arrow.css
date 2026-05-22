@@ -1,0 +1,73 @@
+:root {
+  --arrow-height: 80px;
+  --arrow-width: calc(var(--arrow-height) * 5 / 6);
+  --dot-size: calc(var(--arrow-height) / 6);
+}
+
+.arrow-wrapper {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: none;
+  cursor: pointer;
+}
+
+.arrow-example {
+  position: relative;
+  height: var(--arrow-height);
+  width: var(--arrow-width);
+  will-change: opacity, transform;
+  transition: all .3s cubic-bezier(.43,.27,.36,.83);
+}
+
+.arrow-example > .dot {
+  position: absolute;
+  bottom: 0;
+  left: calc(var(--dot-size) * 2);
+  height: var(--dot-size);
+  width: var(--dot-size);
+  will-change: transform;
+  transition: transform .3s cubic-bezier(.43,.27,.36,.83);
+}
+
+.arrow-example > .dot:after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  display: block;
+  height: 60%;
+  width: 60%;
+  background: #ffffff;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.8)) drop-shadow(0 2px 6px rgba(0,0,0,0.9));
+}
+
+.arrow-example > .dot.-center:nth-of-type(1) { bottom: 0; }
+.arrow-example > .dot.-center:nth-of-type(2) { bottom: var(--dot-size); }
+.arrow-example > .dot.-center:nth-of-type(3) { bottom: calc(var(--dot-size) * 2); }
+.arrow-example > .dot.-center:nth-of-type(4) { bottom: calc(var(--dot-size) * 3); }
+.arrow-example > .dot.-center:nth-of-type(5) { bottom: calc(var(--dot-size) * 4); }
+.arrow-example > .dot.-center:nth-of-type(6) { bottom: calc(var(--dot-size) * 5); }
+
+.arrow-example > .dot.-left-1  { bottom: calc(var(--dot-size) * 1); left: calc(var(--dot-size) * 1); }
+.arrow-example > .dot.-left-2  { bottom: calc(var(--dot-size) * 2); left: 0; }
+.arrow-example > .dot.-right-1 { bottom: calc(var(--dot-size) * 1); left: calc(var(--dot-size) * 3); }
+.arrow-example > .dot.-right-2 { bottom: calc(var(--dot-size) * 2); left: calc(var(--dot-size) * 4); }
+
+.arrow-example.-hidden {
+  opacity: 0;
+  transform: translateY(calc(var(--dot-size) * -2));
+}
+
+.arrow-example.-hidden > .dot:nth-of-type(1)  { transform: translateX(calc(var(--dot-size) * 1))  translateY(calc(var(--dot-size) * 1)); }
+.arrow-example.-hidden > .dot:nth-of-type(2)  { transform: translateX(calc(var(--dot-size) * -1)) translateY(calc(var(--dot-size) * -3)); }
+.arrow-example.-hidden > .dot:nth-of-type(3)  { transform: translateX(calc(var(--dot-size) * -2)) translateY(calc(var(--dot-size) * 1)); }
+.arrow-example.-hidden > .dot:nth-of-type(4)  { transform: translateX(calc(var(--dot-size) * 2))  translateY(calc(var(--dot-size) * -3)); }
+.arrow-example.-hidden > .dot:nth-of-type(5)  { transform: translateX(calc(var(--dot-size) * -2)) translateY(calc(var(--dot-size) * -3)); }
+.arrow-example.-hidden > .dot:nth-of-type(6)  { transform: translateX(calc(var(--dot-size) * 3))  translateY(calc(var(--dot-size) * 1)); }
+.arrow-example.-hidden > .dot:nth-of-type(7)  { transform: translateX(calc(var(--dot-size) * -2)) translateY(calc(var(--dot-size) * -2)); }
+.arrow-example.-hidden > .dot:nth-of-type(8)  { transform: translateX(calc(var(--dot-size) * 2))  translateY(calc(var(--dot-size) * -1)); }
+.arrow-example.-hidden > .dot:nth-of-type(9)  { transform: translateX(calc(var(--dot-size) * 1))  translateY(calc(var(--dot-size) * 1)); }
+.arrow-example.-hidden > .dot:nth-of-type(10) { transform: translateX(calc(var(--dot-size) * -1)) translateY(calc(var(--dot-size) * -3)); }

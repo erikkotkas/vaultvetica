@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="room.css">
+  <link rel="stylesheet" href="general.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="context-menu.css">
+  <link rel="stylesheet" href="https://use.typekit.net/bao6qio.css">
+  <title>VaultVetica</title>
+</head>
+<body>
+  <div id="page-fade" class="is-active"></div>
+
+  <aside id="context-menu" class="context-menu">
+    <div class="context-menu-header">
+      <div class="context-menu-title" id="ctx-title"></div>
+      <button class="context-menu-close" id="ctx-close">X</button>
+    </div>
+    <div class="context-menu-link">Links to: <span id="ctx-link-label"></span></div>
+    <div class="context-menu-desc" id="ctx-desc"></div>
+  </aside>
+
+  <header class="header">
+    <div class="left-section">
+      <button onclick="back()" class="back">&larr; Back</button>
+    </div>
+    <div class="right-section">
+      <button class="btn map-button" type="button" aria-label="Open map">
+        Map <img class="map-button-icon" src="images/compass-icon.svg" alt="">
+      </button>
+    </div>
+  </header>
+
+  <div class="background-container">
+    <img class="bunker-background" src="images/room_shell_tnl_right@2x.png">
+    <!-- assets go here -->
+  </div>
+  <img class="ground" src="images/ground rooms.png" alt="">
+
+  <script>
+    window.CURRENT_ROOM = 1;
+
+    const fade = document.getElementById("page-fade");
+
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) {
+        fade.style.transition = "none";
+        fade.classList.remove("is-active");
+        fade.offsetHeight;
+        fade.style.transition = "";
+        return;
+      }
+      setTimeout(() => { fade.classList.remove("is-active"); }, 100);
+    });
+
+    function fadeToPage(url) {
+      sessionStorage.setItem("fade-transition", "true");
+      fade.style.transition = "";
+      fade.classList.add("is-active");
+      setTimeout(() => { window.location.href = url; }, 500);
+    }
+
+    function back() { fadeToPage("index.html"); }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') fadeToPage('index.html');
+    });
+  </script>
+  <script src="context-menu.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

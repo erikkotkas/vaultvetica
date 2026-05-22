@@ -1,0 +1,281 @@
+
+
+.header {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    z-index: 100;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: 24px;
+}
+
+.logo {
+    height: 40px;
+    display: block;
+    margin-left: 24px;
+    margin-right: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.btn {
+    font-family: "lores-12", monospace;
+    background-color: #000;
+    color: #fff;
+    border: 3px solid #444;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #333;
+    border-color: #138A23;
+    color: #138A23;
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(19, 138, 35, 0.5);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.back {
+    font-family: "lores-12", monospace;
+    font-size: 16px;
+    font-weight: normal;
+    background-color: #000;
+    color: #fff;
+    border: 3px solid #444;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 24px;
+}
+
+.back:hover {
+    background-color: #333;
+    border-color: #138A23;
+    color: #138A23;
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(19, 138, 35, 0.5);
+}
+
+.back:active {
+    transform: translateY(1px);
+}
+
+.map-button {
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 8px 14px;
+}
+
+.map-button-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+    filter: invert(1);
+    pointer-events: none;
+}
+
+.map-button:hover .map-button-icon {
+    filter: invert(39%) sepia(63%) saturate(858%) hue-rotate(82deg) brightness(83%) contrast(91%);
+}
+
+.map-button.is-active {
+    border-color: #222;
+    color: #fff;
+}
+
+.map-menu {
+    position: fixed;
+    bottom: 75px;
+    right: 20px;
+    width: 360px;
+    max-width: calc(100vw - 40px);
+    background: #ffffff;
+    border: 2px solid #222;
+    padding: 14px;
+    z-index: 90;
+    display: none;
+    box-sizing: border-box;
+    font-family: "lores-12", monospace;
+    color: #222;
+}
+
+.map-menu.is-open {
+    display: block;
+}
+
+.menu-title {
+    font-family: "lores-15", monospace;
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 0;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #bcbcbc;
+}
+
+.menu-map {
+    border: 2px solid #888;
+    background: #efefef;
+    height: 160px;
+    margin-bottom: 12px;
+}
+
+.menu-map-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.menu-map-room,
+.menu-map-corridor,
+.menu-map-shaft {
+    fill: #b0b0b0;
+}
+
+.menu-map-room {
+    cursor: pointer;
+    stroke: #aaa;
+    stroke-width: 1px;
+}
+
+.menu-map-room.is-current,
+.menu-map-room.is-selected {
+    stroke: #111;
+    stroke-width: 5px;
+}
+
+.menu-map-label {
+    fill: #222;
+    font: 16px "lores-12", monospace;
+    pointer-events: none;
+}
+
+.menu-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.menu-room {
+    display: block;
+    width: 100%;
+    border: 1px solid #d8d8d8;
+    background: #ffffff;
+    color: #444;
+    padding: 8px;
+    margin-bottom: 6px;
+    text-align: left;
+    font-family: "lores-12", monospace;
+    cursor: pointer;
+}
+
+.menu-room:hover {
+    background: #ececec;
+}
+
+.menu-room.is-selected,
+.menu-room.is-current {
+    background: #d0d0d0;
+    border-color: #222;
+}
+
+.menu-room:disabled {
+    cursor: default;
+    opacity: 0.55;
+}
+
+.menu-room-name {
+    display: block;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #555;
+}
+
+.menu-room.is-current .menu-room-name,
+.menu-room.is-selected .menu-room-name {
+    color: #111;
+    font-weight: bold;
+}
+
+.menu-room-desc {
+    display: block;
+    font-size: 12px;
+    line-height: 1.3;
+    color: #888;
+}
+
+.menu-room.is-current .menu-room-desc,
+.menu-room.is-selected .menu-room-desc {
+    color: #333;
+}
+
+.menu-actions {
+    border-top: 1px solid #bcbcbc;
+    padding-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.menu-actions .btn {
+    border: 2px solid #777;
+    padding: 7px 11px;
+}
+
+.menu-actions .btn:hover {
+    background-color: #222;
+    border-color: #222;
+    color: #fff;
+    transform: none;
+    box-shadow: none;
+}
+
+.menu-enter:disabled,
+.menu-enter:disabled:hover {
+    opacity: 0.4;
+    cursor: default;
+    transform: none;
+    box-shadow: none;
+    background-color: #000;
+    border-color: #777;
+    color: #fff;
+}
+
+@media (max-width: 700px) {
+    .map-menu {
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: none;
+        border-left: 0;
+        border-right: 0;
+    }
+}

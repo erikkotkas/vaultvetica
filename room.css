@@ -1,0 +1,88 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.background-container {
+    position: relative;
+    display: block;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+}
+
+.bunker-background {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.asset-container {
+    position: absolute;
+    cursor: pointer;
+}
+
+.asset-container.no-click {
+    cursor: default;
+    pointer-events: none;
+}
+
+.asset-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    transition: transform 0.15s ease;
+}
+
+.asset-container:not(.no-click):hover .asset-img {
+    transform: scale(1.05);
+}
+
+.tool-tip {
+    position: absolute;
+    background-color: rgb(37, 37, 37);
+    color: white;
+    padding: 10px 8px;
+    font-size: 14px;
+    bottom: 105%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.15s;
+    pointer-events: none;
+    white-space: nowrap;
+    font-family: "lores-12", monospace;
+}
+
+.asset-container:hover .tool-tip {
+    opacity: 1;
+}
+
+#page-fade {
+    position: fixed;
+    inset: 0;
+    background: black;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999999;
+    transition: opacity 500ms ease;
+}
+
+#page-fade.is-active {
+    opacity: 1;
+}
+
+.ground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}

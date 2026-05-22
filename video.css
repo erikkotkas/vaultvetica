@@ -1,0 +1,25 @@
+
+.video-container {
+  width: 100vw;
+  position: relative;
+}
+
+.intro-video,
+.loop-gif {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  border: none;
+  padding: none;
+  border-style: none;
+}
+
+.video{
+    pointer-events: none;
+       width:100vw; 
+   height:auto; 
+}
+.loop-gif {
+    display: none;
+}
