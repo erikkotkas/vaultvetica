@@ -7,6 +7,22 @@
   <link rel="stylesheet" href="context-menu.css">
   <link rel="stylesheet" href="https://use.typekit.net/bao6qio.css">
   <title>VaultVetica</title>
+  <style>
+    .tv-unit-asset .asset-img {
+      transform: none !important;
+      transition: none !important;
+    }
+    .tv-unit-asset { cursor: pointer; }
+    #tv-screen-wrap {
+      position: absolute;
+      left: 50.34%;
+      top: 30.82%;
+      width: 17.14%;
+      aspect-ratio: 227.58 / 147.82;
+      z-index: 1;
+      overflow: hidden;
+    }
+  </style>
 </head>
 
 <body>
@@ -66,14 +82,17 @@
       <div class="tool-tip">Shelf</div>
     </div>
 
-    <!-- TV unit (clickable) -->
-    <div class="asset-container ctx-trigger"
-         style="left: 46.42%; top: 27.37%; width: 25.00%;"
-         onmouseenter="openContext({ name: 'TV', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
-         onmouseleave="closeContext()"
-         onclick="visitContext()">
+    <!-- TV screen -->
+    <div id="tv-screen-wrap">
+      <canvas id="tv-canvas" style="width:100%;height:100%;display:block;image-rendering:pixelated;"></canvas>
+    </div>
+    <video id="tv-video" src="videos/topgear_480p.mp4" style="display:none;" muted loop playsinline preload="auto"></video>
+
+    <!-- TV unit (clickable - toggles sound) -->
+    <div id="tv-unit" class="asset-container tv-unit-asset"
+         style="left: 46.42%; top: 27.37%; width: 25.00%; z-index: 2;"
+         onclick="toggleTV()">
       <img class="asset-img" src="images/r4_tv_unit.png">
-      <div class="tool-tip">TV</div>
     </div>
 
     <!-- Right shelf (decoration only) -->
@@ -94,7 +113,7 @@
 
     <!-- Sofa + man (decoration only) -->
     <div class="asset-container no-click"
-         style="left: 47.84%; top: 56.13%; width: 22.15%;">
+         style="left: 47.84%; top: 56.13%; width: 22.15%; z-index: 3;">
       <img class="asset-img" src="images/r4_sofa.png">
     </div>
 
@@ -129,6 +148,37 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') fadeToPage('index.html');
   });
+
+  (function() {
+    const video = document.getElementById('tv-video');
+    const canvas = document.getElementById('tv-canvas');
+    const ctx = canvas.getContext('2d');
+    const PIXEL_SCALE = 0.15;
+
+    video.addEventListener('loadedmetadata', function() {
+      video.volume = 0.65;
+      canvas.width = Math.floor(video.videoWidth * PIXEL_SCALE);
+      canvas.height = Math.floor(video.videoHeight * PIXEL_SCALE);
+      video.currentTime = Math.random() * video.duration;
+    });
+
+    video.addEventListener('seeked', function() {
+      video.play().catch(function(){});
+    });
+
+    function drawFrame() {
+      if (!video.paused && !video.ended) {
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      }
+      requestAnimationFrame(drawFrame);
+    }
+
+    video.addEventListener('play', drawFrame);
+
+    window.toggleTV = function() {
+      video.muted = !video.muted;
+    };
+  })();
 </script>
   <script src="context-menu.js"></script>
   <script src="nav.js"></script>
