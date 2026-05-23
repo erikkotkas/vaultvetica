@@ -24,10 +24,6 @@
   };
 
   document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('ctx-close').addEventListener('click', () => {
-      document.getElementById('context-menu').classList.remove('is-open');
-    });
-
     document.getElementById('context-menu').addEventListener('mouseenter', () => {
       clearTimeout(closeTimer);
     });
