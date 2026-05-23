@@ -102,7 +102,7 @@
 }
 
 .map-button:hover .map-button-icon {
-    filter: invert(78%) sepia(50%) saturate(800%) hue-rotate(330deg) brightness(105%) contrast(95%);
+    filter: invert(76%) sepia(42%) saturate(750%) hue-rotate(330deg) brightness(106%);
 }
 
 .map-button.is-active {
