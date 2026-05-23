@@ -112,7 +112,7 @@
 
 .map-menu {
     position: fixed;
-    bottom: 75px;
+    bottom: 95px;
     right: 20px;
     width: 360px;
     max-width: calc(100vw - 40px);
