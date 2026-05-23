@@ -2,16 +2,17 @@
   'use strict';
 
   var ROOMS = [
-    { id: 1,  name: 'ROOM 1',  desc: 'Living quarters',      href: 'room1.html' },
-    { id: 2,  name: 'ROOM 2',  desc: 'Room description',     href: 'room2.html' },
-    { id: 3,  name: 'ROOM 3',  desc: 'Room description',     href: 'room3.html' },
-    { id: 4,  name: 'LIVING ROOM', desc: 'Room description',  href: 'room4.html' },
-    { id: 5,  name: 'ROOM 5',  desc: 'Room description',     href: 'room5.html' },
-    { id: 6,  name: 'GYM',      desc: 'Gym',                  href: 'room6.html' },
-    { id: 7,  name: 'BEDROOM', desc: 'Room description',     href: 'room7.html' },
-    { id: 8,  name: 'ROOM 8',  desc: 'Room description',     href: 'room8.html' },
-    { id: 9,  name: 'PUB',      desc: 'Pub',                  href: 'room9.html' },
-    { id: 10, name: 'HMP KERNING', desc: 'Room description',     href: 'room10.html' }
+    { id: 1,  name: 'ROOM 1',      href: 'room1.html' },
+    { id: 2,  name: 'ROOM 2',      href: 'room2.html' },
+    { id: 3,  name: 'ROOM 3',      href: 'room3.html' },
+    { id: 4,  name: 'LIVING ROOM', href: 'room4.html' },
+    { id: 5,  name: 'ROOM 5',      href: 'room5.html' },
+    { id: 6,  name: 'GYM',         href: 'room6.html' },
+    { id: 7,  name: 'BEDROOM',     href: 'room7.html' },
+    { id: 8,  name: 'ROOM 8',      href: 'room8.html' },
+    { id: 9,  name: 'PUB',         href: 'room9.html' },
+    { id: 10, name: 'HMP KERNING', href: 'room10.html' },
+    { id: 11, name: 'THE VAULT',   href: null }
   ];
 
   var currentRoom = typeof window.CURRENT_ROOM !== 'undefined' ? window.CURRENT_ROOM : null;
@@ -24,45 +25,47 @@
 
   function buildMenu() {
     return '<aside id="map-menu" class="map-menu" aria-label="Room navigation">' +
-      '<div class="menu-title">ROOM SELECT</div>' +
-      '<div class="menu-map" aria-hidden="true">' +
-        '<svg viewBox="0 0 280 650" class="menu-map-svg" xmlns="http://www.w3.org/2000/svg">' +
-          '<rect class="menu-map-shaft" x="126" y="0" width="28" height="650"></rect>' +
-          '<rect class="menu-map-corridor" x="80" y="62"  width="120" height="26"></rect>' +
-          '<rect class="menu-map-room" data-room="1"  x="20"  y="45"  width="80" height="58"></rect>' +
-          '<rect class="menu-map-room" data-room="2"  x="180" y="45"  width="80" height="58"></rect>' +
-          '<text class="menu-map-label" x="60"  y="76"  text-anchor="middle">01</text>' +
-          '<text class="menu-map-label" x="220" y="76"  text-anchor="middle">02</text>' +
-          '<rect class="menu-map-corridor" x="80" y="192" width="120" height="26"></rect>' +
-          '<rect class="menu-map-room" data-room="3"  x="20"  y="175" width="80" height="58"></rect>' +
-          '<rect class="menu-map-room" data-room="4"  x="180" y="175" width="80" height="58"></rect>' +
-          '<text class="menu-map-label" x="60"  y="206" text-anchor="middle">03</text>' +
-          '<text class="menu-map-label" x="220" y="206" text-anchor="middle">04</text>' +
-          '<rect class="menu-map-corridor" x="80" y="322" width="120" height="26"></rect>' +
-          '<rect class="menu-map-room" data-room="5"  x="20"  y="305" width="80" height="58"></rect>' +
-          '<rect class="menu-map-room" data-room="6"  x="180" y="305" width="80" height="58"></rect>' +
-          '<text class="menu-map-label" x="60"  y="336" text-anchor="middle">05</text>' +
-          '<text class="menu-map-label" x="220" y="336" text-anchor="middle">06</text>' +
-          '<rect class="menu-map-corridor" x="80" y="452" width="120" height="26"></rect>' +
-          '<rect class="menu-map-room" data-room="7"  x="20"  y="435" width="80" height="58"></rect>' +
-          '<rect class="menu-map-room" data-room="8"  x="180" y="435" width="80" height="58"></rect>' +
-          '<text class="menu-map-label" x="60"  y="466" text-anchor="middle">07</text>' +
-          '<text class="menu-map-label" x="220" y="466" text-anchor="middle">08</text>' +
-          '<rect class="menu-map-corridor" x="80" y="582" width="120" height="26"></rect>' +
-          '<rect class="menu-map-room" data-room="9"  x="20"  y="565" width="80" height="58"></rect>' +
-          '<rect class="menu-map-room" data-room="10" x="180" y="565" width="80" height="58"></rect>' +
-          '<text class="menu-map-label" x="60"  y="596" text-anchor="middle">09</text>' +
-          '<text class="menu-map-label" x="220" y="596" text-anchor="middle">10</text>' +
-        '</svg>' +
-      '</div>' +
-      '<div class="menu-list">' +
-        ROOMS.map(function (room) {
-          return '<button class="menu-room' + (room.href ? '' : ' is-disabled') + '" type="button" data-room="' + room.id + '"' + (room.href ? '' : ' disabled') + '>' +
-            '<span><span class="menu-room-name">' + room.name + '</span><span class="menu-room-desc">' + room.desc + '</span></span>' +
-          '</button>';
-        }).join('') +
+      '<div class="menu-title">VaultVetica</div>' +
+      '<div class="menu-body">' +
+        '<div class="menu-map" aria-hidden="true">' +
+          '<svg viewBox="0 0 1135 3400" class="menu-map-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">' +
+            '<rect class="menu-map-shaft" x="493" y="50" width="149" height="3119"></rect>' +
+            '<rect class="menu-map-corridor" x="435" y="353"  width="58" height="140"></rect>' +
+            '<rect class="menu-map-corridor" x="435" y="922"  width="58" height="140"></rect>' +
+            '<rect class="menu-map-corridor" x="435" y="1591" width="58" height="140"></rect>' +
+            '<rect class="menu-map-corridor" x="435" y="2027" width="58" height="140"></rect>' +
+            '<rect class="menu-map-corridor" x="435" y="2585" width="58" height="140"></rect>' +
+            '<rect class="menu-map-corridor" x="642" y="568"  width="58" height="140"></rect>' +
+            '<rect class="menu-map-corridor" x="642" y="1138" width="58" height="140"></rect>' +
+            '<rect class="menu-map-corridor" x="642" y="1591" width="58" height="140"></rect>' +
+            '<rect class="menu-map-corridor" x="642" y="2306" width="58" height="140"></rect>' +
+            '<rect class="menu-map-corridor" x="642" y="2865" width="58" height="140"></rect>' +
+            '<rect class="menu-map-room" data-room="1"  x="104" y="312"  width="331" height="181"></rect>' +
+            '<rect class="menu-map-room" data-room="3"  x="104" y="881"  width="331" height="181"></rect>' +
+            '<rect class="menu-map-room" data-room="5"  x="104" y="1550" width="331" height="181"></rect>' +
+            '<rect class="menu-map-room" data-room="7"  x="104" y="1986" width="331" height="181"></rect>' +
+            '<rect class="menu-map-room" data-room="9"  x="104" y="2544" width="331" height="181"></rect>' +
+            '<rect class="menu-map-room" data-room="2"  x="700" y="527"  width="331" height="181"></rect>' +
+            '<rect class="menu-map-room" data-room="4"  x="700" y="1097" width="331" height="181"></rect>' +
+            '<rect class="menu-map-room" data-room="6"  x="700" y="1550" width="331" height="181"></rect>' +
+            '<rect class="menu-map-room" data-room="8"  x="700" y="2265" width="331" height="181"></rect>' +
+            '<rect class="menu-map-room" data-room="10" x="700" y="2824" width="331" height="181"></rect>' +
+            '<rect class="menu-map-vault" x="359" y="3169" width="417" height="181"></rect>' +
+          '</svg>' +
+        '</div>' +
+        '<div class="menu-list">' +
+          ROOMS.map(function (room) {
+            var disabled = !room.href;
+            return '<button class="menu-room' + (disabled ? ' is-disabled' : '') + '" type="button" data-room="' + room.id + '"' + (disabled ? ' disabled' : '') + '>' +
+              '<span class="menu-room-label">' + room.name + '</span>' +
+              '<span class="menu-room-pip" aria-hidden="true"></span>' +
+            '</button>';
+          }).join('') +
+        '</div>' +
       '</div>' +
       '<div class="menu-actions">' +
+        '<button class="btn menu-close" type="button" aria-label="Close menu">&#x2715;</button>' +
+        '<div class="menu-actions-gap"></div>' +
         '<button class="btn menu-home" type="button">HOME</button>' +
         '<button id="menu-enter" class="btn menu-enter" type="button" disabled>ENTER</button>' +
       '</div>' +
@@ -81,7 +84,8 @@
     var hasDestination = selectedRoom !== null && selectedRoom !== currentRoom;
     document.querySelectorAll('[data-room]').forEach(function (el) {
       var id = parseInt(el.dataset.room, 10);
-      el.classList.remove('is-current', 'is-selected');
+      el.classList.remove('is-current', 'is-selected', 'is-home');
+      if (id === currentRoom) el.classList.add('is-home');
       if (!hasDestination && id === currentRoom) el.classList.add('is-current');
       if (hasDestination && id === selectedRoom) el.classList.add('is-selected');
     });
@@ -113,12 +117,14 @@
     document.querySelectorAll('.menu-room, .menu-map-room').forEach(function (el) {
       el.addEventListener('click', function () { selectRoom(parseInt(el.dataset.room, 10)); });
     });
+    document.querySelector('.menu-close').addEventListener('click', function () { setOpen(false); });
     document.querySelector('.menu-home').addEventListener('click', function () { goToPage('index.html'); });
     document.getElementById('menu-enter').addEventListener('click', function () {
       var room = getRoom(selectedRoom);
       if (room && room.href) goToPage(room.href);
     });
     document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && open) { setOpen(false); return; }
       if (e.key === 'Enter' && open) {
         var room = getRoom(selectedRoom);
         if (room && room.href) goToPage(room.href);
