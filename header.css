@@ -49,10 +49,10 @@
 
 .btn:hover {
     background-color: #333;
-    border-color: #138A23;
-    color: #138A23;
+    border-color: #FFB46B;
+    color: #FFB46B;
     transform: translateY(-2px);
-    box-shadow: 0 0 10px rgba(19, 138, 35, 0.5);
+    box-shadow: 0 0 10px rgba(255, 180, 107, 0.5);
 }
 
 .btn:active {
@@ -74,10 +74,10 @@
 
 .back:hover {
     background-color: #333;
-    border-color: #138A23;
-    color: #138A23;
+    border-color: #FFB46B;
+    color: #FFB46B;
     transform: translateY(-2px);
-    box-shadow: 0 0 10px rgba(19, 138, 35, 0.5);
+    box-shadow: 0 0 10px rgba(255, 180, 107, 0.5);
 }
 
 .back:active {
@@ -102,7 +102,7 @@
 }
 
 .map-button:hover .map-button-icon {
-    filter: invert(39%) sepia(63%) saturate(858%) hue-rotate(82deg) brightness(83%) contrast(91%);
+    filter: invert(78%) sepia(50%) saturate(800%) hue-rotate(330deg) brightness(105%) contrast(95%);
 }
 
 .map-button.is-active {
@@ -251,11 +251,11 @@
 }
 
 .menu-actions .btn:hover {
-    background-color: #222;
-    border-color: #222;
-    color: #fff;
+    background-color: #333;
+    border-color: #FFB46B;
+    color: #FFB46B;
     transform: none;
-    box-shadow: none;
+    box-shadow: 0 0 10px rgba(255, 180, 107, 0.5);
 }
 
 .menu-enter:disabled,
