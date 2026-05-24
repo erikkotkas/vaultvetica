@@ -35,13 +35,13 @@ function back()           { fadeToPage("bunker.html"); }
 function changeRoom1()    { fadeToPage("room1.html"); }
 function changeRoom2()    { fadeToPage("room2.html"); }
 function changeRoom3()    { fadeToPage("room3.html"); }
-function changeRoom4()    { fadeToPage("room4.html"); }
+function changeRoom4()    { fadeToPage("living-room.html"); }
 function changeRoom5()    { fadeToPage("room5.html"); }
-function changeRoom6()    { fadeToPage("room6.html"); }
+function changeRoom6()    { fadeToPage("gym.html"); }
 function changeRoom7()    { fadeToPage("room7.html"); }
 function changeRoom8()    { fadeToPage("room8.html"); }
-function changeRoom9()    { fadeToPage("room9.html"); }
-function changeRoom10()   { fadeToPage("room10.html"); }
+function changeRoom9()    { fadeToPage("pub.html"); }
+function changeRoom10()   { fadeToPage("hmp-kerning.html"); }
 function changeRoomHome() { fadeToPage("bunker.html"); }
 
 const savedY = sessionStorage.getItem("scrollY");

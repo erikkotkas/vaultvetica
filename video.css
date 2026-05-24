@@ -17,9 +17,48 @@
 
 .video{
     pointer-events: none;
-       width:100vw; 
-   height:auto; 
+       width:100vw;
+   height:auto;
 }
 .loop-gif {
     display: none;
+}
+
+.skip-btn {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  z-index: 100;
+  background: transparent;
+  color: #FFB46B;
+  border: 1px solid #FFB46B;
+  font-family: inherit;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  opacity: 0.25;
+  transition: opacity 0.2s ease;
+  pointer-events: all;
+  image-rendering: pixelated;
+}
+
+.skip-btn:hover {
+  opacity: 0.6;
+}
+
+.easter-egg {
+  position: absolute;
+  left: 18.61%;
+  top: 85.75%;
+  width: 0.45%;
+  height: 1.5%;
+  cursor: pointer;
+  z-index: 20;
+  display: none;
+  background: transparent;
+}
+
+.easter-egg:hover {
+  outline: none;
 }
