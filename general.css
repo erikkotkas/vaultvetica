@@ -28,3 +28,10 @@ html {
 #page-fade.is-active {
   opacity: 1;
 }
+
+.under-construction {
+  opacity: 0.35;
+  cursor: not-allowed !important;
+  letter-spacing: 0.04em;
+  font-size: 0.6em;
+}

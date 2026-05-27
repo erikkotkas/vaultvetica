@@ -12,7 +12,7 @@
     { id: 8,  name: 'THE CREDITS',  href: 'room8.html' },
     { id: 9,  name: 'PUB',         href: 'pub.html' },
     { id: 10, name: 'HMP KERNING', href: 'hmp-kerning.html' },
-    { id: 11, name: 'THE VAULT',   href: null }
+    { id: 11, name: 'THE VAULT - COMING SOON',   href: null }
   ];
 
   var currentRoom = typeof window.CURRENT_ROOM !== 'undefined' ? window.CURRENT_ROOM : null;
@@ -55,7 +55,10 @@
         '</div>' +
         '<div class="menu-list">' +
           ROOMS.map(function (room) {
-            var disabled = !room.href;
+            var underConstruction = typeof DEMO_MODE !== 'undefined' && DEMO_MODE &&
+  typeof DEMO_UNDER_CONSTRUCTION !== 'undefined' &&
+  DEMO_UNDER_CONSTRUCTION.indexOf(room.id) !== -1;
+var disabled = !room.href || underConstruction;
             return '<button class="menu-room' + (disabled ? ' is-disabled' : '') + '" type="button" data-room="' + room.id + '"' + (disabled ? ' disabled' : '') + '>' +
               '<span class="menu-room-label">' + room.name + '</span>' +
               '<span class="menu-room-pip" aria-hidden="true"></span>' +
@@ -98,7 +101,10 @@
 
   function selectRoom(id) {
     var room = getRoom(id);
-    if (!room || !room.href) return;
+    var blocked = typeof DEMO_MODE !== 'undefined' && DEMO_MODE &&
+      typeof DEMO_UNDER_CONSTRUCTION !== 'undefined' &&
+      DEMO_UNDER_CONSTRUCTION.indexOf(id) !== -1;
+    if (!room || !room.href || blocked) return;
     selectedRoom = id;
     updateStates();
   }

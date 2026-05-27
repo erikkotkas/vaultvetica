@@ -44,6 +44,25 @@ function changeRoom9()    { fadeToPage("pub.html"); }
 function changeRoom10()   { fadeToPage("hmp-kerning.html"); }
 function changeRoomHome() { fadeToPage("bunker.html"); }
 
+// Demo: mark rooms under construction
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof DEMO_MODE === 'undefined' || !DEMO_MODE) return;
+  if (typeof DEMO_UNDER_CONSTRUCTION === 'undefined' || !DEMO_UNDER_CONSTRUCTION.length) return;
+
+  var buttonMap = {
+    1: document.querySelector('.room1Button'),
+    2: document.querySelector('.bunkerRoom')
+  };
+
+  DEMO_UNDER_CONSTRUCTION.forEach(function (id) {
+    var btn = buttonMap[id];
+    if (!btn) return;
+    btn.disabled = true;
+    btn.textContent = 'UNDER CONSTRUCTION';
+    btn.classList.add('under-construction');
+  });
+});
+
 const savedY = sessionStorage.getItem("scrollY");
 if (savedY !== null) {
   sessionStorage.removeItem("scrollY");
