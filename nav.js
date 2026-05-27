@@ -4,12 +4,12 @@
   var ROOMS = [
     { id: 1,  name: 'ROOM 1',      href: 'room1.html' },
     { id: 2,  name: 'ROOM 2',      href: 'room2.html' },
-    { id: 3,  name: 'ROOM 3',      href: 'room3.html' },
+    { id: 3,  name: 'LIBRARY',      href: 'room3.html' },
     { id: 4,  name: 'LIVING ROOM', href: 'living-room.html' },
-    { id: 5,  name: 'ROOM 5',      href: 'room5.html' },
+    { id: 5,  name: 'ARCADE',       href: 'library.html' },
     { id: 6,  name: 'GYM',         href: 'gym.html' },
     { id: 7,  name: 'BEDROOM',     href: 'room7.html' },
-    { id: 8,  name: 'ROOM 8',      href: 'room8.html' },
+    { id: 8,  name: 'THE CREDITS',  href: 'room8.html' },
     { id: 9,  name: 'PUB',         href: 'pub.html' },
     { id: 10, name: 'HMP KERNING', href: 'hmp-kerning.html' },
     { id: 11, name: 'THE VAULT',   href: null }

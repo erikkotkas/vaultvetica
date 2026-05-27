@@ -36,7 +36,7 @@ function changeRoom1()    { fadeToPage("room1.html"); }
 function changeRoom2()    { fadeToPage("room2.html"); }
 function changeRoom3()    { fadeToPage("room3.html"); }
 function changeRoom4()    { fadeToPage("living-room.html"); }
-function changeRoom5()    { fadeToPage("room5.html"); }
+function changeRoom5()    { fadeToPage("library.html"); }
 function changeRoom6()    { fadeToPage("gym.html"); }
 function changeRoom7()    { fadeToPage("room7.html"); }
 function changeRoom8()    { fadeToPage("room8.html"); }
