@@ -6,7 +6,7 @@
     { id: 2,  name: 'ROOM 2',      href: 'room2.html' },
     { id: 3,  name: 'LIBRARY',      href: 'room3.html' },
     { id: 4,  name: 'LIVING ROOM', href: 'living-room.html' },
-    { id: 5,  name: 'ARCADE',       href: 'library.html' },
+    { id: 5,  name: 'ARCADE',       href: 'arcade.html' },
     { id: 6,  name: 'GYM',         href: 'gym.html' },
     { id: 7,  name: 'BEDROOM',     href: 'room7.html' },
     { id: 8,  name: 'THE CREDITS',  href: 'room8.html' },

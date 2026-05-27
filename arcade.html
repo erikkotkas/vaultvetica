@@ -33,55 +33,55 @@
   <div class="background-container">
     <img class="bunker-background" src="images/room_shell_tnl_right@2x.png">
 
-    <!-- r3_painting.png -->
+    <!-- r5_machine_left.png -->
     <div class="asset-container ctx-trigger"
-         style="left:26.04%;top:32.15%;width:10.53%;"
+         style="left:15.22%;top:30.64%;width:16.48%;"
+         onmouseenter="openContext({ name: 'MACHINE LEFT', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/r5_machine_left.png" alt="Arcade machine left">
+      <span class="glint" style="mask-image: url('images/r5_machine_left.png')"></span>
+      <div class="tool-tip">MACHINE LEFT</div>
+    </div>
+
+    <!-- r5_painting.png -->
+    <div class="asset-container ctx-trigger"
+         style="left:37.88%;top:32.54%;width:12.28%;"
          onmouseenter="openContext({ name: 'PAINTING', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
          onmouseleave="closeContext()"
          onclick="visitContext()">
-      <img class="asset-img" src="images/r3_painting.png" alt="Painting">
-      <span class="glint" style="mask-image: url('images/r3_painting.png')"></span>
+      <img class="asset-img" src="images/r5_painting.png" alt="Painting">
+      <span class="glint" style="mask-image: url('images/r5_painting.png')"></span>
       <div class="tool-tip">PAINTING</div>
     </div>
 
-    <!-- r3_table.png -->
+    <!-- r5_table.png -->
     <div class="asset-container ctx-trigger"
-         style="left:16.11%;top:49.19%;width:22.13%;"
+         style="left:34.14%;top:61.23%;width:19.17%;"
          onmouseenter="openContext({ name: 'TABLE', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
          onmouseleave="closeContext()"
          onclick="visitContext()">
-      <img class="asset-img" src="images/r3_table.png" alt="Table">
-      <span class="glint" style="mask-image: url('images/r3_table.png')"></span>
+      <img class="asset-img" src="images/r5_table.png" alt="Table">
+      <span class="glint" style="mask-image: url('images/r5_table.png')"></span>
       <div class="tool-tip">TABLE</div>
     </div>
 
-    <!-- r3_bookcase.png -->
+    <!-- r5_machine_right.png -->
     <div class="asset-container ctx-trigger"
-         style="left:47.72%;top:45.77%;width:21.27%;"
-         onmouseenter="openContext({ name: 'BOOKCASE', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         style="left:56.87%;top:28.75%;width:14.45%;"
+         onmouseenter="openContext({ name: 'MACHINE RIGHT', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
          onmouseleave="closeContext()"
          onclick="visitContext()">
-      <img class="asset-img" src="images/r3_bookcase.png" alt="Bookcase">
-      <span class="glint" style="mask-image: url('images/r3_bookcase.png')"></span>
-      <div class="tool-tip">BOOKCASE</div>
-    </div>
-
-    <!-- r3_librarian.png -->
-    <div class="asset-container ctx-trigger"
-         style="left:40.25%;top:57.51%;width:10.71%;"
-         onmouseenter="openContext({ name: 'LIBRARIAN', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
-         onmouseleave="closeContext()"
-         onclick="visitContext()">
-      <img class="asset-img" src="images/r3_librarian.png" alt="Librarian">
-      <span class="glint" style="mask-image: url('images/r3_librarian.png')"></span>
-      <div class="tool-tip">LIBRARIAN</div>
+      <img class="asset-img" src="images/r5_machine_right.png" alt="Arcade machine right">
+      <span class="glint" style="mask-image: url('images/r5_machine_right.png')"></span>
+      <div class="tool-tip">MACHINE RIGHT</div>
     </div>
 
   </div>
   <img class="ground" src="images/ground rooms.png" alt="">
 
   <script>
-    window.CURRENT_ROOM = 3;
+    window.CURRENT_ROOM = 5;
 
     const fade = document.getElementById("page-fade");
 
