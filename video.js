@@ -9,12 +9,18 @@ const lastVisit = parseInt(localStorage.getItem(LAST_VISIT_KEY) || '0', 10);
 const isReturning = (now - lastVisit) < COOLDOWN;
 localStorage.setItem(LAST_VISIT_KEY, now);
 
+console.log('[video] COOLDOWN:', COOLDOWN, '| isReturning:', isReturning);
+
 const introVideo = document.getElementById("introVideo");
 const loopGif    = document.getElementById("loopGif");
+
+console.log('[video] introVideo:', introVideo);
+console.log('[video] loopGif:', loopGif);
 
 let skipBtn = null;
 
 function showLoop() {
+  console.log('[video] showLoop called');
   if (skipBtn) {
     skipBtn.remove();
     skipBtn = null;
@@ -35,10 +41,24 @@ function injectSkipButton() {
 }
 
 if (isReturning) {
+  console.log('[video] returning visitor — skipping to loop');
   showLoop();
 } else {
+  console.log('[video] new visit — playing intro, waiting for ended event');
   if (DEMO_MODE && DEMO_SKIP_BUTTON) {
     injectSkipButton();
   }
-  introVideo.addEventListener("ended", showLoop);
+  introVideo.addEventListener("ended", function () {
+    console.log('[video] ended event fired');
+    showLoop();
+  });
+  introVideo.addEventListener("error", function (e) {
+    console.error('[video] introVideo error:', e);
+  });
+  introVideo.addEventListener("stalled", function () {
+    console.warn('[video] introVideo stalled');
+  });
+  introVideo.addEventListener("suspend", function () {
+    console.warn('[video] introVideo suspended');
+  });
 }
