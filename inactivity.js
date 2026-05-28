@@ -6,17 +6,16 @@
   var timer;
 
   function onInactive() {
+    sessionStorage.removeItem('scrollY');
+    sessionStorage.removeItem('returning');
     if (typeof window.CURRENT_ROOM !== 'undefined') {
-      // Inside a room — fade back to home
       if (typeof window.fadeToPage === 'function') {
         window.fadeToPage('index.html');
       } else {
         window.location.href = 'index.html';
       }
     } else {
-      // On home page — scroll to top
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      reset();
+      window.location.reload();
     }
   }
 

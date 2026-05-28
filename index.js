@@ -1,5 +1,9 @@
 const fade = document.getElementById("page-fade");
 
+if (typeof DEMO_INACTIVITY !== 'undefined' && DEMO_INACTIVITY) {
+  history.scrollRestoration = 'manual';
+}
+
 function resetFade() {
   fade.style.transition = "none";
   fade.classList.remove("is-active");

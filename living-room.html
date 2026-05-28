@@ -192,6 +192,32 @@
       video.currentTime = randomTime;
     });
 
+    var retries = 0;
+    var MAX_RETRIES = 3;
+
+    video.addEventListener('error', function () {
+      if (retries < MAX_RETRIES) {
+        retries++;
+        setTimeout(function () {
+          var src = video.src;
+          video.src = '';
+          video.src = src;
+          video.load();
+        }, 2000 * retries);
+      }
+    });
+
+    video.addEventListener('stalled', function () {
+      setTimeout(function () {
+        if (video.readyState < 3) {
+          var src = video.src;
+          video.src = '';
+          video.src = src;
+          video.load();
+        }
+      }, 5000);
+    });
+
     window.toggleTV = function() {
       video.muted = !video.muted;
     };
