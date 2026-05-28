@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var btn = buttonMap[id];
     if (!btn) return;
     btn.disabled = true;
-    btn.textContent = 'UNDER CONSTRUCTION';
+    btn.innerHTML = 'UNDER CONSTRUCTION<br><span class="uc-subline">KEEP SCROLLING</span>';
     btn.classList.add('under-construction');
   });
 });

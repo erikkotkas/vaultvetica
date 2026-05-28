@@ -35,3 +35,11 @@ html {
   letter-spacing: 0.04em;
   font-size: 0.6em;
 }
+
+.uc-subline {
+  display: block;
+  font-size: 0.75em;
+  opacity: 0.6;
+  letter-spacing: 0.08em;
+  margin-top: 0.2em;
+}
