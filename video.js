@@ -1,6 +1,6 @@
 const LAST_VISIT_KEY = 'shelter_last_visit';
 const REGULAR_COOLDOWN = 15 * 60 * 1000;
-const DEMO_COOLDOWN    =  2 * 60 * 1000;
+const DEMO_COOLDOWN    =  0;
 
 const COOLDOWN = DEMO_MODE ? DEMO_COOLDOWN : REGULAR_COOLDOWN;
 

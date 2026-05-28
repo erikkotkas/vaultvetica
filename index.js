@@ -34,12 +34,12 @@ function fadeToPage(url) {
 function back()           { fadeToPage("bunker.html"); }
 function changeRoom1()    { fadeToPage("room1.html"); }
 function changeRoom2()    { fadeToPage("room2.html"); }
-function changeRoom3()    { fadeToPage("room3.html"); }
+function changeRoom3()    { fadeToPage("library.html"); }
 function changeRoom4()    { fadeToPage("living-room.html"); }
 function changeRoom5()    { fadeToPage("arcade.html"); }
 function changeRoom6()    { fadeToPage("gym.html"); }
-function changeRoom7()    { fadeToPage("room7.html"); }
-function changeRoom8()    { fadeToPage("room8.html"); }
+function changeRoom7()    { fadeToPage("bedroom.html"); }
+function changeRoom8()    { fadeToPage("credits.html"); }
 function changeRoom9()    { fadeToPage("pub.html"); }
 function changeRoom10()   { fadeToPage("hmp-kerning.html"); }
 function changeRoomHome() { fadeToPage("bunker.html"); }
