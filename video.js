@@ -20,13 +20,13 @@ console.log('[video] loopGif:', loopGif);
 let skipBtn = null;
 
 function showLoop() {
-  console.log('[video] showLoop called');
   if (skipBtn) {
     skipBtn.remove();
     skipBtn = null;
   }
   introVideo.style.display = "none";
   loopGif.style.display = "block";
+  loopGif.play().catch(function () {});
   document.querySelector('.easter-egg').style.display = 'block';
   if (typeof onLoopStart === 'function') onLoopStart();
 }
